@@ -4,7 +4,8 @@ const basePath = path.resolve(__dirname);
 module.exports = {
     context: path.join(basePath, 'src'),
     entry: {
-        app: './index.js'
+        bug: './bug.js',
+        unmute: './unmute.js'
     },
     output: {
         path: path.join(basePath, 'dist'),

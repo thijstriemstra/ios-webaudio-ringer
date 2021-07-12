@@ -1,3 +1,4 @@
+import "./css/style.css";
 import WaveSurfer from 'wavesurfer.js';
 import unmute from '../lib/unmute';
 
@@ -46,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // setup wavesurfer
     const playerOptions = {
         container: '#waveform',
-        waveColor: '#a8ffb0',
+        waveColor: '#38ffac',
         progressColor: '#e3ffe5',
         cursorColor: '#ffffff',
         audioContext: context

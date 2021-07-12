@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Unmute - iOS WebAudio Ringer</title>
+
+    <script src="../dist/unmute.bundle.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <div id="title"></div>
+    <hr>
+
+    <div id="waveform"></div>
+
+    <div class="controls">
+        <button class="btn" data-action="play">
+            <i class="fas fa-play-circle"></i>
+        </button>
+        <button class="btn" data-action="toggle-mute">
+            <i class="fas fa-volume-up"></i>
+        </button>
+    </div>
+
+    <div id="description">
+        <p>This app should <b>NOT</b> encounter playback issues when silence mode is enabled on iOS devices.</p>
+        <p>It uses the solution by <a href="https://github.com/swevans/unmute">https://github.com/swevans/unmute</a></p>
+    </div>
+
+</body>
+
+</html>

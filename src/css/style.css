@@ -1,0 +1,36 @@
+body {
+    background-color: #363635;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #a8ffb0;
+}
+
+a {
+    color: #a8ffb0;
+    text-decoration: none;
+}
+
+.btn {
+    background-color: #a8ffb0;
+    border: none;
+    border-radius: 5px;
+    color: black;
+    padding: 4px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.controls {
+    padding-top: 30px;
+}
+
+#title {
+    font-weight: bold;
+}
+
+#waveform {
+    position: relative;
+    max-width: 450px;
+}

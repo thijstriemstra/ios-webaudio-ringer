@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Bug - iOS WebAudio Ringer</title>
+
+    <script src="../dist/bug.bundle.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <div id="title"></div>
+    <hr>
+
+    <div id="waveform"></div>
+
+    <div class="controls">
+        <button class="btn" data-action="play">
+            <i class="fas fa-play-circle"></i>
+        </button>
+        <button class="btn" data-action="toggle-mute">
+            <i class="fas fa-volume-up"></i>
+        </button>
+    </div>
+
+    <div id="description">
+        <p>This app should encounter playback issues when silence mode is enabled on iOS devices.</p>
+    </div>
+
+</body>
+
+</html>
