@@ -38,7 +38,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // setup wavesurfer
     const playerOptions = {
         container: '#waveform',
-        backend: 'MediaElement',
         waveColor: '#fa3939',
         progressColor: '#bd0f0f',
         cursorColor: '#ffffff',
@@ -59,6 +58,7 @@ document.addEventListener('DOMContentLoaded', function () {
         let element = document.getElementById("title");
         element.appendChild(tag);
 
+        // enable airplay
         const audioPlayer = document.getElementsByTagName("audio")[0];
         audioPlayer.setAttribute("title", "HAL9000");
         audioPlayer.setAttribute("x-webkit-airplay", "allow");

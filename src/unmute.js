@@ -47,10 +47,10 @@ document.addEventListener('DOMContentLoaded', function () {
     // setup wavesurfer
     const playerOptions = {
         container: '#waveform',
-        backend: 'MediaElement',
         waveColor: '#38ffac',
         progressColor: '#e3ffe5',
         cursorColor: '#ffffff',
+        barWidth: 2,
         hideScrollbar: true,
         audioContext: context
     };
@@ -67,6 +67,11 @@ document.addEventListener('DOMContentLoaded', function () {
         tag.appendChild(mediafile);
         let element = document.getElementById("title");
         element.appendChild(tag);
+
+        // enable airplay
+        const audioPlayer = document.getElementsByTagName("audio")[0];
+        audioPlayer.setAttribute("title", "HAL9000");
+        audioPlayer.setAttribute("x-webkit-airplay", "allow");
     });
 
     wavesurfer.load(url);
