@@ -42,6 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
         waveColor: '#fa3939',
         progressColor: '#bd0f0f',
         cursorColor: '#ffffff',
+        barWidth: 2,
         hideScrollbar: true
     };
     wavesurfer = WaveSurfer.create(playerOptions);
