@@ -2,7 +2,6 @@ const path = require('path');
 const basePath = path.resolve(__dirname);
 
 module.exports = {
-    mode: 'development',
     context: path.join(basePath, 'src'),
     entry: {
         app: './index.js'
