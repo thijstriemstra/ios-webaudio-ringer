@@ -59,6 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
         element.appendChild(tag);
 
         const audioPlayer = document.getElementsByTagName("audio")[0];
+        audioPlayer.setAttribute("title", "HAL9000");
         audioPlayer.setAttribute("x-webkit-airplay", "allow");
     });
 
