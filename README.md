@@ -2,6 +2,8 @@
 
 Allow WebAudio to be played when iOS device is in silent mode.
 
+See https://thijstriemstra.github.io/ios-webaudio-ringer
+
 ## Installation
 
 Install webpack:
@@ -24,4 +26,5 @@ Start the development server:
 npm run start
 ```
 
-And open http://localhost:8080/src/index.html in a browser.
+And open http://localhost:8080/src/ in a browser.
+
