@@ -8,15 +8,52 @@
     <script src="/dist/app.bundle.js" type="text/javascript"></script>
 
     <style>
-        /* change player background color */
-        #myAudio {
-            background-color: #FFFFB5;
+        body {
+            background-color: #363635;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #a8ffb0;
+            font-weight: bold;
+        }
+
+        .btn {
+            background-color: #a8ffb0;
+            border: none;
+            border-radius: 5px;
+            color: black;
+            padding: 4px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .controls {
+            padding-top: 30px;
+        }
+
+        #waveform {
+            position: relative;
+            max-width: 450px;
         }
     </style>
 </head>
 
 <body>
-    <audio id="myAudio"></audio>
+    <div id="title"></div>
+    <hr>
+
+    <div id="waveform"></div>
+
+    <div class="controls">
+        <button class="btn" data-action="play">
+            <i class="fas fa-play-circle"></i>
+        </button>
+        <button class="btn" data-action="toggle-mute">
+            <i class="fas fa-volume-up"></i>
+        </button>
+    </div>
+
 </body>
 
 </html>

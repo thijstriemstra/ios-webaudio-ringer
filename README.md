@@ -15,3 +15,13 @@ Install wavesurfer.js:
 ```console
 npm install --save wavesurfer.js
 ```
+
+## Development
+
+Start the development server:
+
+```console
+npm run start
+```
+
+And open http://localhost:8080/src/index.html in a browser.

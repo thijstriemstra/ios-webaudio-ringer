@@ -1,33 +1,70 @@
 import WaveSurfer from 'wavesurfer.js';
+import unmute from '../lib/unmute';
 
-let player;
-const elementId = 'myAudio';
-let src = { src: '/hal.wav', type: 'audio/wav' };
+// icons
+import { library, dom } from "@fortawesome/fontawesome-svg-core";
+import { faPlayCircle } from "@fortawesome/free-solid-svg-icons/faPlayCircle";
+import { faVolumeUp } from "@fortawesome/free-solid-svg-icons/faVolumeUp";
 
-const playerOptions = {
-    controls: true,
-    bigPlayButton: false,
-    autoplay: false,
-    fluid: false,
-    loop: false,
-    width: 600,
-    height: 300,
-    plugins: {
-        // configure videojs-wavesurfer plugin
-        wavesurfer: {
-            backend: 'MediaElement',
-            displayMilliseconds: true,
-            debug: true,
-            waveColor: '#4A4A22',
-            progressColor: 'black',
-            cursorColor: 'black',
-            hideScrollbar: true
-        }
+library.add(faPlayCircle);
+library.add(faVolumeUp);
+dom.watch();
+
+let wavesurfer;
+const url = 'media/hal.wav';
+
+let GLOBAL_ACTIONS = {
+    play: function () {
+        wavesurfer.playPause();
+    },
+    'toggle-mute': function () {
+        wavesurfer.toggleMute();
     }
 };
 
 // wait till DOM is ready
 document.addEventListener('DOMContentLoaded', function () {
-    const msg = 'Using wavesurfer.js ' + WaveSurfer.VERSION;
-    console.info(msg);
+    // Create an audio context instance if WebAudio is supported
+    let context = (window.AudioContext || window.webkitAudioContext) ?
+        new (window.AudioContext || window.webkitAudioContext)() : null;
+    // Pass it to unmute if the context exists... ie WebAudio is supported
+    if (context) {
+        unmute.unmute(context);
+    }
+
+    // controls
+    [].forEach.call(document.querySelectorAll('[data-action]'), function (el) {
+        el.addEventListener('click', function (e) {
+            let action = e.currentTarget.dataset.action;
+            if (action in GLOBAL_ACTIONS) {
+                e.preventDefault();
+                GLOBAL_ACTIONS[action](e);
+            }
+        });
+    });
+
+    // setup wavesurfer
+    const playerOptions = {
+        container: '#waveform',
+        waveColor: '#a8ffb0',
+        progressColor: '#e3ffe5',
+        cursorColor: '#ffffff',
+        audioContext: context
+    };
+    wavesurfer = WaveSurfer.create(playerOptions);
+
+    wavesurfer.on('ready', () => {
+        const msg = 'Using wavesurfer.js v' + WaveSurfer.VERSION;
+        console.info(msg);
+        let tag = document.createElement("p");
+        let title = document.createTextNode(msg);
+        tag.appendChild(title);
+        tag.appendChild(document.createElement("br"));
+        let mediafile = document.createTextNode("Loaded " + url);
+        tag.appendChild(mediafile);
+        let element = document.getElementById("title");
+        element.appendChild(tag);
+    });
+
+    wavesurfer.load(url);
 });
