@@ -38,9 +38,11 @@ document.addEventListener('DOMContentLoaded', function () {
     // setup wavesurfer
     const playerOptions = {
         container: '#waveform',
+        backend: 'MediaElement',
         waveColor: '#fa3939',
         progressColor: '#bd0f0f',
-        cursorColor: '#ffffff'
+        cursorColor: '#ffffff',
+        hideScrollbar: true
     };
     wavesurfer = WaveSurfer.create(playerOptions);
 

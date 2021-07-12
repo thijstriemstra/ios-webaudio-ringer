@@ -5,7 +5,8 @@ module.exports = {
     context: path.join(basePath, 'src'),
     entry: {
         bug: './bug.js',
-        unmute: './unmute.js'
+        unmute: './unmute.js',
+        ws: './ws.js'
     },
     output: {
         path: path.join(basePath, 'dist'),

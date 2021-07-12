@@ -1,6 +1,5 @@
 import "./css/style.css";
 import WaveSurfer from 'wavesurfer.js';
-import unmute from '../lib/unmute';
 
 // icons
 import { library, dom } from "@fortawesome/fontawesome-svg-core";
@@ -25,14 +24,6 @@ let GLOBAL_ACTIONS = {
 
 // wait till DOM is ready
 document.addEventListener('DOMContentLoaded', function () {
-    // Create an audio context instance if WebAudio is supported
-    let context = (window.AudioContext || window.webkitAudioContext) ?
-        new (window.AudioContext || window.webkitAudioContext)() : null;
-    // Pass it to unmute if the context exists... ie WebAudio is supported
-    if (context) {
-        unmute.unmute(context);
-    }
-
     // controls
     [].forEach.call(document.querySelectorAll('[data-action]'), function (el) {
         el.addEventListener('click', function (e) {
@@ -47,12 +38,10 @@ document.addEventListener('DOMContentLoaded', function () {
     // setup wavesurfer
     const playerOptions = {
         container: '#waveform',
-        backend: 'MediaElement',
         waveColor: '#38ffac',
         progressColor: '#e3ffe5',
         cursorColor: '#ffffff',
-        hideScrollbar: true,
-        audioContext: context
+        hideScrollbar: true
     };
     wavesurfer = WaveSurfer.create(playerOptions);
 
