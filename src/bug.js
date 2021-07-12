@@ -57,6 +57,9 @@ document.addEventListener('DOMContentLoaded', function () {
         tag.appendChild(mediafile);
         let element = document.getElementById("title");
         element.appendChild(tag);
+
+        const audioPlayer = document.getElementsByTagName("audio")[0];
+        audioPlayer.setAttribute("x-webkit-airplay", "allow");
     });
 
     wavesurfer.load(url);
