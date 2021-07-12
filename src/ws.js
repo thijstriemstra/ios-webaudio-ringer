@@ -59,11 +59,6 @@ document.addEventListener('DOMContentLoaded', function () {
         tag.appendChild(mediafile);
         let element = document.getElementById("title");
         element.appendChild(tag);
-
-        // enable airplay
-        const audioPlayer = document.getElementsByTagName("audio")[0];
-        audioPlayer.setAttribute("title", "HAL9000");
-        audioPlayer.setAttribute("x-webkit-airplay", "allow");
     });
 
     wavesurfer.load(url);
